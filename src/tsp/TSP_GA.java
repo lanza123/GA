@@ -60,4 +60,11 @@ public class TSP_GA {
         }
         p.close();
     }
+    public static void main(String args[]){
+        String tsp_path = "C:\\Users\\admin\\Desktop\\GA-master\\GA-master\\src\\testtsp\\TSP.txt";
+        TSP_GA tsp_ga = new TSP_GA(tsp_path);
+        tsp_ga.Start();
+        tsp_ga.showResult();
+        tsp_ga.writeToFile("C:\\Users\\admin\\Desktop\\GA-master\\GA-master\\src\\output\\TSP-14302010029.txt");
+    }
 }

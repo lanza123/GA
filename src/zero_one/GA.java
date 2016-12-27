@@ -69,21 +69,23 @@ public class GA {
     }
 
     //进行交叉
-    protected static void intersect(Knapsack[] knapsacks, float irate) {
+    protected static Knapsack[] intersect(Knapsack[] knapsacks, float irate) {
         int scale = knapsacks.length;
         int len = knapsacks[0].getItemSize();
-        for(int i = 0; i < scale; i = i + 2)
-            for(int j = 0; j < len; j++) {
-                if(Math.random() < irate) {
+        for(int i = 0; i < scale; i = i + 2) {
+            for (int j = 0; j < len; j++) {
+                if (Math.random() < irate) {
                     boolean tmp = knapsacks[i].getItemAddOrNot(j);
-                    knapsacks[i].setItemAddOrNot(j, knapsacks[i+1].getItemAddOrNot(j));
+                    knapsacks[i].setItemAddOrNot(j, knapsacks[i + 1].getItemAddOrNot(j));
                     knapsacks[i + 1].setItemAddOrNot(j, tmp);
                 }
             }
+        }
+        return knapsacks;
     }
 
     //变异
-    protected static void aberra(Knapsack[] knapsacks, float arate1, float arate2) {
+    protected static Knapsack[] aberra(Knapsack[] knapsacks, float arate1, float arate2) {
         int scale = knapsacks.length;
         int len = knapsacks[0].getItemSize();
         for(int i = 0; i < scale; i++) {
@@ -96,6 +98,7 @@ public class GA {
                 }
             }
         }
+        return knapsacks;
     }
 
     static class SortFitness implements Comparable<SortFitness>{

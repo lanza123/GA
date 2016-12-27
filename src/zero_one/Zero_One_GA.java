@@ -65,4 +65,10 @@ public class Zero_One_GA {
         }
         p.close();
     }
+	public static void main(String[] args) {
+		String testknapsack_path = "C:\\Users\\admin\\Desktop\\GA-master\\GA-master\\src\\testknapsack\\Knapsack.txt";
+		Zero_One_GA zero_one_knapsack = new Zero_One_GA(testknapsack_path);
+		zero_one_knapsack.Start();
+		zero_one_knapsack.writeToFile("C:\\Users\\admin\\Desktop\\GA-master\\GA-master\\src\\output\\Knapsack-14302010029.txt");
+	}
 }
