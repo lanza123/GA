@@ -65,6 +65,6 @@ public class TSP_GA {
         TSP_GA tsp_ga = new TSP_GA(tsp_path);
         tsp_ga.Start();
         tsp_ga.showResult();
-        tsp_ga.writeToFile("C:\\Users\\admin\\Desktop\\GA-master\\GA-master\\src\\output\\TSP-14302010029.txt");
+        tsp_ga.writeToFile("C:\\Users\\admin\\Desktop\\GA-master\\GA\\src\\output\\TSP-14302010029.txt");
     }
 }

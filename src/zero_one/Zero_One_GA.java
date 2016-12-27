@@ -1,5 +1,4 @@
 package zero_one;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -37,14 +36,13 @@ public class Zero_One_GA {
 			e.printStackTrace();
 		}
 
-		Population pop = new Population(200, quantity, capacity, 0.5f, 0.05f, 0.1f);
+		Population pop = new Population(200, quantity, capacity, 0.5, 0.05, 0.1);
 		this.bestSolution = pop.solve();
 	}
 
 	public void showResult() {
         for (int i = 0; i < bestSolution.length; i++) {
-
-            System.out.println(i + " " + 1);
+            System.out.println(i + " " +  bestSolution[i]);
         }
     }
 
@@ -69,6 +67,7 @@ public class Zero_One_GA {
 		String testknapsack_path = "C:\\Users\\admin\\Desktop\\GA-master\\GA-master\\src\\testknapsack\\Knapsack.txt";
 		Zero_One_GA zero_one_knapsack = new Zero_One_GA(testknapsack_path);
 		zero_one_knapsack.Start();
-		zero_one_knapsack.writeToFile("C:\\Users\\admin\\Desktop\\GA-master\\GA-master\\src\\output\\Knapsack-14302010029.txt");
+        zero_one_knapsack.showResult();
+		zero_one_knapsack.writeToFile("C:\\Users\\admin\\Desktop\\GA-master\\GA\\src\\output\\Knapsack-14302010029.txt");
 	}
 }

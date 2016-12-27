@@ -4,20 +4,20 @@ package zero_one;
  * Created by Jindiwei on 2016/12/24.
  */
 public class Item {
-    private float weight;
-    private float value;
+    private double weight;
+    private double value;
     private boolean addOrNot = false;
 
-    public Item(float weight, float value){
+    public Item(double weight, double value){
         this.weight = weight;
         this.value = value;
     }
 
-    public float getWeight(){
+    public double getWeight(){
         return weight;
     }
 
-    public float getValue(){
+    public double getValue(){
         return value;
     }
 

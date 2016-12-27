@@ -7,17 +7,17 @@ import java.util.ArrayList;
  */
 public class Knapsack {
     private ArrayList<Item> knapsack = new ArrayList<>();
-    private float capacity;
-    public Knapsack(float capacity){
+    private double capacity;
+    public Knapsack(double capacity){
         for (int i = 0; i < Zero_One_GA.ItemList.size(); i++) {
-            float weight = Zero_One_GA.ItemList.get(i).getWeight();
-            float value= Zero_One_GA.ItemList.get(i).getValue();
+            double weight = Zero_One_GA.ItemList.get(i).getWeight();
+            double value= Zero_One_GA.ItemList.get(i).getValue();
             this.capacity = capacity;
             knapsack.add(new Item(weight, value));
         }
     }
 
-    public float getCapacity(){
+    public double getCapacity(){
         return capacity;
     }
 

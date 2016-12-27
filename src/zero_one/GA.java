@@ -7,10 +7,10 @@ import java.util.Random;
 
 public class GA {
     static Random random = new Random();
-    protected static Knapsack[] select(Knapsack[] knapsacks, float[] fitness) {
+    protected static Knapsack[] select(Knapsack[] knapsacks, double[] fitness) {
         int scale = knapsacks.length;
         int len = knapsacks[0].getItemSize();
-        float capacity = knapsacks[0].getCapacity();
+        double capacity = knapsacks[0].getCapacity();
         SortFitness[] sortFitness = new SortFitness[scale];
         for(int i = 0; i < scale; i++) {
             sortFitness[i] = new SortFitness();
@@ -31,27 +31,6 @@ public class GA {
                 int index = sortFitness[i].index;
                 tmpKnapsacks[i].setItemAddOrNot(j, knapsacks[index].getItemAddOrNot(j));
             }
-            //将加入后的个体随机化
-            for(int j = 0; j < len; j++) {
-                int index = sortFitness[i].index;
-                knapsacks[index].setItemAddOrNot(j, false);
-            }
-            float tmpc = (float)(0.5 + Math.random()) * capacity;
-            int count = 0;
-            for(int j = 0; j < tmpc;) {
-                int k = random.nextInt(len);
-                if(knapsacks[sortFitness[i].index].getItemAddOrNot(k)) {
-                    if(count == 3) {
-                        break;
-                    }
-                    count++;
-                    continue;
-                } else {
-                    knapsacks[sortFitness[i].index].setItemAddOrNot(k, true);
-                    j += knapsacks[0].getItem(k).getWeight();
-                    count = 0;
-                }
-            }//
         }
 
         //再随机80%的个体出来
@@ -69,7 +48,7 @@ public class GA {
     }
 
     //进行交叉
-    protected static Knapsack[] intersect(Knapsack[] knapsacks, float irate) {
+    protected static Knapsack[] intersect(Knapsack[] knapsacks, double irate) {
         int scale = knapsacks.length;
         int len = knapsacks[0].getItemSize();
         for(int i = 0; i < scale; i = i + 2) {
@@ -85,7 +64,7 @@ public class GA {
     }
 
     //变异
-    protected static Knapsack[] aberra(Knapsack[] knapsacks, float arate1, float arate2) {
+    protected static Knapsack[] aberra(Knapsack[] knapsacks, double arate1, double arate2) {
         int scale = knapsacks.length;
         int len = knapsacks[0].getItemSize();
         for(int i = 0; i < scale; i++) {
@@ -103,9 +82,9 @@ public class GA {
 
     static class SortFitness implements Comparable<SortFitness>{
         int index;
-        float fitness;
+        double fitness;
         public int compareTo(SortFitness c) {
-            float cfitness = c.fitness;
+            double cfitness = c.fitness;
             if(fitness > cfitness) {
                 return -1;
             } else if(fitness < cfitness) {
